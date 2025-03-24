@@ -10,7 +10,12 @@ public class Check_in {
         ovSaldo.incheck(klant);
 
         System.out.println("Huidig saldo: " + klant.getSaldo());
-        ovSaldo.incheck(klant);
+        
+        ovSaldo.uitchecken(klant);
+        
+        System.out.println("Huidig saldo: " + klant.getSaldo());
+        
+        
     }
 }
 
