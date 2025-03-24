@@ -1,13 +1,12 @@
 package ov_chipkaart;
 
 public class Ontvanger {
-    private static final double Instap_Tarief = 4.00; 
-    private static final double ReisPrijs = 3.00;
-    
+    private static final double Instap_Tarief = 20.00;
+    private static final double Reis_Kosten = 6.00;
+    private static final double Terug_Kosten = 20.00 - Reis_Kosten;
 
     public boolean incheck(Klant klant) {
         if (klant.getSaldo() >= Instap_Tarief) {
-            
             klant.setSaldo(klant.getSaldo() - Instap_Tarief);
             System.out.println("Inchecken geslaagd! Instaptarief is afgeschreven.");
             return true;
@@ -18,10 +17,10 @@ public class Ontvanger {
         }
     }
     
-    public boolean uitchecken(Klant klant) {
-        if (klant.getSaldo() >= ReisPrijs) {
-            klant.setSaldo(klant.getSaldo() - ReisPrijs);
-            System.out.println("Uitchecken geslaagd! Reisprijs is afgeschreven.");
+    public boolean uitcheck(Klant klant) {
+        if (klant.getSaldo() <= Reis_Kosten) {
+        	klant.setSaldo(klant.getSaldo() + Terug_Kosten);
+            System.out.println("Uitchecken geslaagd!");
             return true;
         }
         return false;
