@@ -3,7 +3,7 @@ package ov_chipkaart;
 public class Check_in {
     public static void main(String[] args) {
         
-        Klant klant = new Klant("Kamiel", 20.00);
+        Klant klant = new Klant(20.00);
 
         Ontvanger ovSaldo = new Ontvanger();
 

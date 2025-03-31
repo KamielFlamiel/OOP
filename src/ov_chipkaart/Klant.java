@@ -1,11 +1,9 @@
 package ov_chipkaart;
 
 public class Klant {
-    private String naam;
     private double saldo;
 
-    public Klant(String naam, double saldo) {
-        this.naam = naam;
+    public Klant(double saldo) {
         this.saldo = saldo;
     }
 
