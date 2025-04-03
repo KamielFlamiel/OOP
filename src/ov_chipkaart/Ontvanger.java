@@ -8,7 +8,7 @@ public class Ontvanger {
     public boolean incheck(Klant klant) {
         if (klant.getSaldo() >= Instap_Tarief) {
             klant.setSaldo(klant.getSaldo() - Instap_Tarief);
-            System.out.println("Inchecken geslaagd. Instaptarief is afgeschreven");
+            System.out.println("Inchecken geslaagd");
             return true;
         } else {
            
