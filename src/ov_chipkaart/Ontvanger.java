@@ -8,11 +8,11 @@ public class Ontvanger {
     public boolean incheck(Klant klant) {
         if (klant.getSaldo() >= Instap_Tarief) {
             klant.setSaldo(klant.getSaldo() - Instap_Tarief);
-            System.out.println("Inchecken geslaagd! Instaptarief is afgeschreven.");
+            System.out.println("Inchecken geslaagd. Instaptarief is afgeschreven");
             return true;
         } else {
            
-            System.out.println("Saldo is onvoldoende om in te checken.");
+            System.out.println("Saldo is onvoldoende om in te checken");
             return false;
         }
     }
@@ -20,7 +20,7 @@ public class Ontvanger {
     public boolean uitcheck(Klant klant) {
         if (klant.getSaldo() <= Reis_Kosten) {
         	klant.setSaldo(klant.getSaldo() + Terug_Kosten);
-            System.out.println("Uitchecken geslaagd!");
+            System.out.println("Uitchecken geslaagd");
             return true;
         }
         return false;
