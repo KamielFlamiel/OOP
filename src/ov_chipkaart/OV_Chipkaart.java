@@ -1,6 +1,6 @@
 package ov_chipkaart;
 
-public class Reiziger {
+public class OV_Chipkaart {
     public static void main(String[] args) {
         
         Saldo_Systeem klant = new Saldo_Systeem(20.00);
