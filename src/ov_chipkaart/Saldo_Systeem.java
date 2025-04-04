@@ -1,9 +1,9 @@
 package ov_chipkaart;
 
-public class Klant {
+public class Saldo_Systeem {
     private double saldo;
 
-    public Klant(double saldo) {
+    public Saldo_Systeem(double saldo) {
         this.saldo = saldo;
     }
 

@@ -1,11 +1,11 @@
 package ov_chipkaart;
 
-public class Check_in {
+public class Reiziger {
     public static void main(String[] args) {
         
-        Klant klant = new Klant(20.00);
+        Saldo_Systeem klant = new Saldo_Systeem(20.00);
 
-        Ontvanger ovSaldo = new Ontvanger();
+        Poortje ovSaldo = new Poortje();
 
         ovSaldo.incheck(klant);
 
