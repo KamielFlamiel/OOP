@@ -6,8 +6,9 @@ public class OV_Chipkaart {
     public static void main(String[] args) {
     	
     	Scanner sc = new Scanner(System.in);
-        Saldo_Systeem klant = new Saldo_Systeem(20.00);
+        Saldo_Systeem klant = new Saldo_Systeem(20.0);
         Poortje ovSaldo = new Poortje();
+        Poortje toestaanCheckin = new Poortje();
         
         while(true) {
         	
@@ -22,11 +23,11 @@ public class OV_Chipkaart {
             }
 
             if (input == 1) {
-            	ovSaldo.incheck(klant);
+            	ovSaldo.incheck(klant, toestaanIncheck);
 
                 System.out.println("Huidig saldo na inchecken: " + klant.getSaldo());
                 
-                ovSaldo.uitcheck(klant);
+                ovSaldo.uitcheck(klant, toestaanIncheck);
                 
                 System.out.println("Huidig saldo na uitchecken: " + klant.getSaldo());
             } else if (input == 2) {
