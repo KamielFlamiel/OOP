@@ -8,7 +8,8 @@ public class OV_Chipkaart {
     	Scanner sc = new Scanner(System.in);
         Saldo_Systeem klant = new Saldo_Systeem(20.0);
         Poortje ovSaldo = new Poortje();
-        Poortje toestaanCheckin = new Poortje();
+        boolean toestaanCheckin = true;
+        
         
         while(true) {
         	
@@ -18,16 +19,16 @@ public class OV_Chipkaart {
             
             int input = sc.nextInt();
             
-            if (input != (1 & 2)) {
+            if (input != 1 && input != 2) {
             	System.out.println("Verkeerde input");
             }
 
             if (input == 1) {
-            	ovSaldo.incheck(klant, toestaanIncheck);
+            	ovSaldo.incheck(klant, toestaanCheckin);
 
                 System.out.println("Huidig saldo na inchecken: " + klant.getSaldo());
                 
-                ovSaldo.uitcheck(klant, toestaanIncheck);
+                ovSaldo.uitcheck(klant, toestaanCheckin);
                 
                 System.out.println("Huidig saldo na uitchecken: " + klant.getSaldo());
             } else if (input == 2) {
