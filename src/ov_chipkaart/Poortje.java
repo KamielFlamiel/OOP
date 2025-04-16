@@ -19,19 +19,20 @@ public class Poortje {
         }
     }
     
-    public boolean uitcheck(Saldo_Systeem klant, boolean toestaanCheckin) {
+    public void uitcheck(Saldo_Systeem klant, boolean toestaanCheckin) {
     	if (Toestaan_Checkin = true) {
     		double terug_kosten = Instap_Tarief - Reis_Kosten;
+    		klant.setSaldo(klant.getSaldo() + terug_kosten);
     		
     		if (klant.getSaldo() - terug_kosten < Instap_Tarief) {
     			System.out.println("Saldo komt onder de 20, Uitchecken is niet mogelijk");
     			Toestaan_Checkin = false;
-    	        return true;
+    	        return;
     	        
     	} else {
     		
     	 System.out.println("U bent uitgechekt");
-    	  return false;
+    	  return;
     	
     	}
         	
