@@ -6,7 +6,7 @@ public class Poortje {
     private static boolean Toestaan_Checkin = true;
     
 
-    public boolean incheck(Saldo_Systeem klant, boolean toestaanCheckin) {
+    public boolean incheck(OV_Chipkaart klant, boolean toestaanCheckin) {
         if (klant.getSaldo() >= Instap_Tarief) {
             System.out.println("Inchecken geslaagd");
             klant.setSaldo(klant.getSaldo() - Instap_Tarief);
@@ -19,7 +19,7 @@ public class Poortje {
         }
     }
     
-    public void uitcheck(Saldo_Systeem klant, boolean toestaanCheckin) {
+    public void uitcheck(OV_Chipkaart klant, boolean toestaanCheckin) {
     	if (Toestaan_Checkin = true) {
     		double terug_kosten = Instap_Tarief - Reis_Kosten;
     		klant.setSaldo(klant.getSaldo() + terug_kosten);
