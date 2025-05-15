@@ -1,28 +1,24 @@
 package ov_chipkaart;
 
 public class Locaties {
-	private double Nijmegen;
-	private double Utrecht;
-	private double Amsterdam;
-	private boolean inNijmegen;
-	private boolean inAmsterdam;
-	private boolean inUtrecht;
-	
-	public void getLocatie() {
-		if (inUtrecht) {
-			return Utrecht;
-		} else if (inNijmegen = true) {
-			return Nijmegen;
-		} else if (inAmsterdam = true) {
-			return Amsterdam;
-		}
-	
-		
-	}
-	
-	public void setLocatie(boolean inNijmegen) {
-		this.inNijmegen = inNijmegen;
-	}
-	
+    private String naam;
+    private double reisKosten;
 
+    public Locaties(String naam, double reisKosten) {
+        this.naam = naam;
+        this.reisKosten = reisKosten;
+    }
+
+    public String getNaam() {
+        return naam;
+    }
+
+    public double getReisKosten() {
+        return reisKosten;
+    }
+
+    @Override
+    public String toString() {
+        return naam + " (€" + reisKosten + ")";
+    }
 }

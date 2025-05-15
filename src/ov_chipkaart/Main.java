@@ -4,48 +4,56 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-    	
-    	Scanner sc = new Scanner(System.in);
+        
+        Locaties[] route = {
+        	    new Locaties("Amsterdam", 6.00),
+        	    new Locaties("Rotterdam", 8.50),
+        	    new Locaties("Utrecht", 5.00)
+        	};
+        
+        int huidigeLocatieIndex = 0;
+        
+        Scanner sc = new Scanner(System.in);
         OV_Chipkaart klant = new OV_Chipkaart(false, 20.0);
-        Poortje ovSaldo = new Poortje();
-        boolean toestaanCheckin = true;
-        
-        
-        while(true) {
+        Poortje poortje = new Poortje();
         	
-        	System.out.println("Je saldo = " + klant.getSaldo());
-        	System.out.println("Wil je inchecken/uitchecken of OV-kaart opladen?");
-            System.out.println("1 voor inchecken/uitchecken, 2 voor OV-kaart opladen");
-            
-            int input = sc.nextInt();
-            
-            if (input != 1 && input != 2) {
-            	System.out.println("Verkeerde input");
-            }
+        	while (true) {
+        	    System.out.println("Je saldo = €" + klant.getSaldo());
+        	    System.out.println("Wil je inchecken, uitchecken of OV-kaart opladen?");
+        	    System.out.println("1: Inchecken");
+        	    System.out.println("2: Uitchecken");
+        	    System.out.println("3: Opladen");
 
-            if (input == 1) {
-            	ovSaldo.incheck(klant, toestaanCheckin);
+        	    int input = sc.nextInt();
 
-                System.out.println("Huidig saldo na inchecken: " + klant.getSaldo());
-                
-                ovSaldo.uitcheck(klant, toestaanCheckin);
-                
-                System.out.println("Huidig saldo na uitchecken: " + klant.getSaldo());
-            } else if (input == 2) {
-            	System.out.println("Hoeveel wil je opladen?");
-            	int saldo = sc.nextInt();
-            	klant.setSaldo(saldo);
-            	
-            	System.out.println("Nieuw saldo: €" + klant.getSaldo());
-            }
-            
-        }
-        
-        
-        
-        
-        
-    }
-}
+        	    if (input == 1) {
+        	    	if (klant.isIngecheckt()) {
+        	    		System.out.println("Je bent al ingecheckt");
+        	    		continue;
+        	    	}
+        	    	
+        	    	Locaties volgendeBestemming = route[huidigeLocatieIndex];
+        	    	poortje.incheck(klant, volgendeBestemming);
+        	    	System.out.println("Saldo na incheck: €" + klant.getSaldo());
+        	    	
+        	    	huidigeLocatieIndex = (huidigeLocatieIndex + 1) % route.length;
+        	    	
+        	        
+        	    } else if (input == 2) {
+        	        poortje.uitcheck(klant);
+        	        System.out.println("Saldo na uitcheck: €" + klant.getSaldo());
+        	        
+        	     } else if (input == 3) {
+                     System.out.print("Hoeveel wil je opladen? €");
+                     double bedrag = sc.nextDouble();
+                     klant.setSaldo(klant.getSaldo() + bedrag);
+                     System.out.println("Nieuw saldo: €" + klant.getSaldo());
+
+                 } else {
+                     System.out.println("Ongeldige keuze.");
+                 }
+             }
+         }
+     }
 
 
